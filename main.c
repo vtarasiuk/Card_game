@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <locale.h> // setlocale  
 #include "deck.h"
 
 #define CARDS_LENGTH_36 9
@@ -21,11 +22,11 @@ void print(int players_count, struct deck **players_decks)
 int main()
 {
   srand(time(NULL));
-
+  
   struct deck** players_decks = malloc(PLAYERS * sizeof(struct deck *)); // [PLAYERS]
   for (int i = 0; i < PLAYERS; i++)
   {
-    players_decks[i] = initialize_deck(36 / PLAYERS); // magic number
+    players_decks[i] = initialize_deck(18, 36); // magic number
   }
 
   for (int i = 0; i < 10; i++)
@@ -35,7 +36,6 @@ int main()
     printf("\n\n");
     getchar();
   }
-  
 
   for (int i = 0; i < PLAYERS; i++)
   {

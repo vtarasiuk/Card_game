@@ -6,4 +6,4 @@ all: main.o deck.o
 	gcc -c $^
 
 clean:
-	rm *.o main
+	del *.o main.exe
